@@ -1,0 +1,758 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+:root{
+    --morado:#7B5DF5;
+    --azul:#5B6CFF;
+    --blanco:#FFFFFF;
+    --gris:#F5F6FA;
+    --texto:#333;
+    --sombra:0 4px 15px rgba(0,0,0,.08);
+}
+
+body{
+    background:var(--gris);
+    color:var(--texto);
+}
+
+.contenedor{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    min-height:100vh;
+}
+
+/* NAV */
+
+nav{
+    background:linear-gradient(
+        180deg,
+        var(--morado),
+        var(--azul)
+    );
+    color:white;
+    padding:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.logo i{
+    font-size:30px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* MAIN */
+
+main{
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    background:white;
+    padding:20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:var(--sombra);
+}
+
+.usuario{
+    background:var(--gris);
+    padding:10px 15px;
+    border-radius:12px;
+}
+
+/* CONTENIDO */
+
+.contenido{
+    padding:30px;
+}
+
+/* RESUMEN */
+
+.resumen{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.card-resumen{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.card-resumen h3{
+    margin-bottom:10px;
+}
+
+.card-resumen h2{
+    color:var(--morado);
+}
+
+/* TARJETAS */
+
+.tarjetas{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--sombra);
+}
+
+.saldo{
+    background:linear-gradient(
+        135deg,
+        var(--morado),
+        var(--azul)
+    );
+    color:white;
+}
+
+.saldo h2{
+    margin-top:10px;
+    font-size:40px;
+}
+
+.accion{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.accion button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:var(--morado);
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.accion button:hover{
+    opacity:.9;
+}
+
+/* FORMULARIOS */
+
+.formularios{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:25px;
+}
+
+.formulario{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.formulario h3{
+    margin-bottom:15px;
+}
+
+.formulario input,
+.formulario select{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.formulario button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:var(--morado);
+    color:white;
+    cursor:pointer;
+}
+
+.formulario button:hover{
+    opacity:.9;
+}
+
+/* ===================================
+   GASTOS + MOVIMIENTOS
+=================================== */
+
+.dashboard-row{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    margin-top:25px;
+}
+
+.grafico-container{
+    margin-top:0;
+}
+
+.grafico-container .card{
+    height:100%;
+}
+
+.contenedor-grafico{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+    padding:20px 0;
+}
+
+.grafico-pastel{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:#ddd;
+    position:relative;
+    box-shadow:inset 0 0 15px rgba(0,0,0,.08);
+}
+
+.centro-grafico{
+    width:110px;
+    height:110px;
+    background:white;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#555;
+    font-weight:600;
+    box-shadow:0 0 10px rgba(0,0,0,.05);
+}
+
+.leyenda{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    font-size:15px;
+}
+
+.leyenda div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.color{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+}
+
+.comida{
+    background:#7B5DF5;
+}
+
+.transporte{
+    background:#5B6CFF;
+}
+
+.educacion{
+    background:#00C896;
+}
+
+.ocio{
+    background:#FFB300;
+}
+
+/* MOVIMIENTOS */
+
+.movimientos{
+    margin-top:0;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+    max-height:420px;
+    overflow-y:auto;
+}
+
+.movimientos h3{
+    margin-bottom:20px;
+}
+
+.movimiento{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #f0f0f0;
+}
+
+.movimiento:last-child{
+    border-bottom:none;
+}
+
+/* SCROLL */
+
+.movimientos::-webkit-scrollbar{
+    width:6px;
+}
+
+.movimientos::-webkit-scrollbar-thumb{
+    background:#cfcfcf;
+    border-radius:20px;
+}
+
+/* HISTORIAL */
+
+.historial{
+    margin-top:25px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.historial h3{
+    margin-bottom:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#f1f1f1;
+}
+
+th,
+td{
+    padding:15px;
+    text-align:left;
+    border-bottom:1px solid #eee;
+}
+
+.eliminar{
+    background:#e53935;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.eliminar:hover{
+    opacity:.9;
+}
+
+/* ALERTA */
+
+.alerta{
+    display:none;
+    margin-top:20px;
+    background:#ffe5e5;
+    color:#d00000;
+    padding:15px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:white;
+    padding:15px;
+    text-align:center;
+    margin-top:auto;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .resumen{
+        grid-template-columns:1fr;
+    }
+
+    .tarjetas{
+        grid-template-columns:1fr;
+    }
+
+    .formularios{
+        grid-template-columns:1fr;
+    }
+
+    .dashboard-row{
+        grid-template-columns:1fr;
+    }
+
+    .contenedor-grafico{
+        flex-direction:column;
+    }
+
+    .grafico-pastel{
+        width:190px;
+        height:190px;
+    }
+}
+
+@media(max-width:768px){
+
+    .contenedor{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        padding:20px;
+    }
+
+    header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .contenido{
+        padding:15px;
+    }
+}
+/* =========================
+   MODALES
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.5);
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-contenido{
+    background:white;
+    width:450px;
+    max-width:90%;
+
+    padding:30px;
+    border-radius:20px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.2);
+
+    position:relative;
+
+    animation:aparecer .3s ease;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.modal-contenido h2{
+    margin-bottom:20px;
+    color:var(--morado);
+}
+
+.modal-contenido input,
+.modal-contenido select{
+
+    width:100%;
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    outline:none;
+}
+
+.modal-contenido input:focus,
+.modal-contenido select:focus{
+
+    border-color:var(--morado);
+}
+
+.modal-contenido button{
+
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        var(--morado),
+        var(--azul)
+    );
+
+    color:white;
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.modal-contenido button:hover{
+
+    transform:translateY(-2px);
+}
+
+.cerrar{
+
+    position:absolute;
+    top:12px;
+    right:18px;
+
+    font-size:30px;
+    font-weight:bold;
+
+    cursor:pointer;
+    color:#777;
+}
+
+.cerrar:hover{
+
+    color:#e53935;
+}
+
+/* =========================
+   BOTONES MAS ELEGANTES
+========================= */
+
+.accion button{
+
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        var(--morado),
+        var(--azul)
+    );
+
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.accion button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(123,93,245,.3);
+}
+
+/* =========================
+   DASHBOARD ROW
+========================= */
+
+.dashboard-row{
+
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+
+    gap:20px;
+
+    margin-top:25px;
+
+    align-items:stretch;
+}
+
+/* =========================
+   MOVIMIENTOS
+========================= */
+
+.movimientos{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+    height:100%;
+}
+
+.movimientos h3{
+
+    margin-bottom:15px;
+}
+
+.movimiento{
+
+    display:flex;
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .dashboard-row{
+
+        grid-template-columns:1fr;
+    }
+}
+/* TARJETAS DE ACCION */
+
+.accion{
+    padding:0;
+    overflow:hidden;
+}
+
+.accion button{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    padding:25px;
+}
+
+.ingreso-card button{
+
+    background:linear-gradient(
+        135deg,
+        #7B5DF5,
+        #5B6CFF
+    );
+}
+
+.gasto-card button{
+
+    background:linear-gradient(
+        135deg,
+        #5B6CFF,
+        #7B5DF5
+    );
+}
+
+.accion i{
+
+    font-size:35px;
+}
+
+.accion span{
+
+    font-size:18px;
+    font-weight:600;
+}
+
+.accion small{
+
+    font-size:13px;
+    opacity:.9;
+}
+.categoria{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+.cat-comida{
+    background:#7B5DF5;
+}
+
+.cat-transporte{
+    background:#5B6CFF;
+}
+
+.cat-educacion{
+    background:#00C896;
+}
+
+.cat-ocio{
+    background:#FFB300;
+}

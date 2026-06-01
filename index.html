@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentBudget</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu">
+
+                <a href="#">
+                    <i class="fa-solid fa-house"></i>
+                    Inicio
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-money-bill"></i>
+                    Ingresos
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Gastos
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Historial
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Reportes
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    Configuración
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+
+            <!-- HEADER -->
+            <header>
+
+                <div>
+                    <h1>Dashboard StudentBudget</h1>
+                    <p>Control de gastos estudiantiles</p>
+                </div>
+
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i>
+                    Estudiante
+                </div>
+
+            </header>
+
+            <section class="contenido">
+
+                <!-- RESUMEN -->
+                <section class="resumen">
+
+                    <article class="card-resumen">
+                        <h3>Ingresos del Mes</h3>
+                        <h2 id="totalIngresos">$0.00</h2>
+                    </article>
+
+                    <article class="card-resumen">
+                        <h3>Gastos del Mes</h3>
+                        <h2 id="totalGastos">$0.00</h2>
+                    </article>
+
+                    <article class="card-resumen">
+                        <h3>Ahorro Actual</h3>
+                        <h2 id="ahorro">$0.00</h2>
+                    </article>
+
+                </section>
+
+                <!-- TARJETAS -->
+                <section class="tarjetas">
+
+                    <article class="card saldo">
+
+                        <h3>Saldo Disponible</h3>
+
+                        <h2 id="saldo">
+                            $0.00
+                        </h2>
+
+                    </article>
+
+<article class="card accion ingreso-card">
+
+    <button onclick="abrirIngreso()">
+
+        <i class="fa-solid fa-plus"></i>
+
+        <span>Agregar Dinero</span>
+
+        <small>Registra tus ingresos</small>
+
+    </button>
+
+</article>
+
+<article class="card accion gasto-card">
+
+    <button onclick="abrirGasto()">
+
+        <i class="fa-solid fa-minus"></i>
+
+        <span>Registrar Gasto</span>
+
+        <small>Agrega tus gastos</small>
+
+    </button>
+
+</article>
+
+                </section>
+<!-- MODAL INGRESO -->
+
+<div id="modalIngreso" class="modal">
+
+    <div class="modal-contenido">
+
+        <span
+            class="cerrar"
+            onclick="cerrarIngreso()">
+
+            &times;
+
+        </span>
+
+        <h2>Agregar Ingreso</h2>
+
+        <input
+            type="number"
+            id="ingreso"
+            placeholder="Ingrese monto">
+
+        <button onclick="guardarIngresoModal()">
+
+            Guardar Ingreso
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- MODAL GASTO -->
+
+<div id="modalGasto" class="modal">
+
+    <div class="modal-contenido">
+
+        <span
+            class="cerrar"
+            onclick="cerrarGasto()">
+
+            &times;
+
+        </span>
+
+        <h2>Registrar Gasto</h2>
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre del gasto">
+
+        <input
+            type="number"
+            id="gasto"
+            placeholder="Monto">
+
+        <select id="categoria">
+
+            <option value="Comida">
+                Comida
+            </option>
+
+            <option value="Transporte">
+                Transporte
+            </option>
+
+            <option value="Educacion">
+                Educación
+            </option>
+
+            <option value="Ocio">
+                Ocio
+            </option>
+
+        </select>
+
+        <button onclick="guardarGastoModal()">
+
+            Guardar Gasto
+
+        </button>
+
+    </div>
+
+</div>   
+
+<!-- GRAFICO PASTEL -->
+
+                <section class="dashboard-row">
+
+    <!-- GASTOS POR CATEGORIA -->
+
+    <section class="grafico-container">
+
+        <article class="card">
+
+            <h3>Gastos por Categoría</h3>
+
+            <div class="contenedor-grafico">
+
+                <div id="graficoPastel" class="grafico-pastel">
+
+                    <div class="centro-grafico">
+                            Gastos<br>Totales
+                    </div>
+
+                </div>
+
+                <div class="leyenda">
+
+                    <div>
+                        <span class="color comida"></span>
+                        Comida:
+                        <span id="catComida">$0.00</span>
+                    </div>
+
+                    <div>
+                        <span class="color transporte"></span>
+                        Transporte:
+                        <span id="catTransporte">$0.00</span>
+                    </div>
+
+                    <div>
+                        <span class="color educacion"></span>
+                        Educación:
+                        <span id="catEducacion">$0.00</span>
+                    </div>
+
+                    <div>
+                        <span class="color ocio"></span>
+                        Ocio:
+                        <span id="catOcio">$0.00</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- ULTIMOS MOVIMIENTOS -->
+
+    <section class="movimientos">
+
+        <h3>Últimos Movimientos</h3>
+
+        <div id="ultimosMovimientos">
+
+            <div class="movimiento">
+                <span>Sistema iniciado</span>
+                <span>$0.00</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+                <!-- HISTORIAL -->
+
+                <section class="historial">
+
+                    <h3>Historial de Gastos</h3>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Categoría</th>
+                                <th>Tipo</th>
+                                <th>Monto</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="lista">
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+                <!-- ALERTA -->
+
+                <div id="alerta" class="alerta">
+
+                    ⚠ Advertencia:
+                    saldo insuficiente.
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+
+            <footer>
+
+                © 2026 StudentBudget |
+                Proyecto Académico
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
