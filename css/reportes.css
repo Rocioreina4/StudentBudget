@@ -1,0 +1,401 @@
+/* RESET */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+
+/* VARIABLES */
+
+:root{
+
+    --morado:#5c44b9;
+
+    --azul:#5B6CFF;
+
+    --blanco:#fff;
+
+    --gris:#F5F6FA;
+
+    --texto:#333;
+
+    --sombra:
+    0 4px 15px rgba(0,0,0,.08);
+
+}
+
+
+/* BODY */
+
+body{
+
+    background:var(--gris);
+
+    color:var(--texto);
+
+}
+
+
+/* CONTENEDOR */
+
+.contenedor{
+
+    display:grid;
+
+    grid-template-columns:
+    250px 1fr;
+
+    min-height:100vh;
+
+}
+
+
+/* NAV */
+
+nav{
+
+    background:
+    linear-gradient(
+        180deg,
+        var(--morado),
+        var(--azul)
+    );
+
+    padding:25px;
+
+    color:white;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:40px;
+
+}
+
+.logo i{
+
+    font-size:30px;
+
+}
+
+.menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.menu a{
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    background:
+    rgba(255,255,255,.15);
+
+}
+
+.activo{
+
+    background:
+    rgba(255,255,255,.2);
+
+}
+
+
+/* MAIN */
+
+main{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+header{
+
+    background:white;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:var(--sombra);
+
+}
+
+.usuario{
+
+    background:var(--gris);
+
+    padding:10px 15px;
+
+    border-radius:12px;
+
+}
+
+
+/* CONTENIDO */
+
+.contenido{
+
+    padding:30px;
+
+}
+
+
+/* RESUMEN */
+
+.resumen{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.card-resumen{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+}
+
+.card-resumen h2{
+
+    color:var(--morado);
+
+    margin-top:10px;
+
+}
+
+
+/* REPORTES */
+
+.reportes-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+    text-align:center;
+
+}
+
+.card i{
+
+    font-size:35px;
+
+    color:var(--morado);
+
+    margin-bottom:15px;
+
+}
+
+
+/* GRAFICA */
+
+.grande{
+
+    text-align:left;
+
+}
+
+.placeholder{
+
+    height:280px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    color:#777;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    background:white;
+
+    padding:15px;
+
+    text-align:center;
+
+    margin-top:auto;
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .contenedor{
+
+        grid-template-columns:1fr;
+
+    }
+
+    header{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        text-align:center;
+
+    }
+
+    .resumen{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.grafica-barras{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    margin-top:25px;
+
+}
+
+
+.fila{
+
+    display:grid;
+
+    grid-template-columns:
+
+    100px 1fr 60px;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.barra{
+
+    height:25px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.valor{
+
+    height:100%;
+
+    width:0%;
+
+    transition:.5s;
+
+    border-radius:20px;
+
+}
+
+
+.comida{
+
+    background:#7B5DF5;
+
+}
+
+.transporte{
+
+    background:#5B6CFF;
+
+}
+
+.educacion{
+
+    background:#00C896;
+
+}
+
+.ocio{
+
+    background:#FFB300;
+
+}

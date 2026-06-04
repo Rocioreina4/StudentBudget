@@ -19,29 +19,6 @@ body{
     color:var(--texto);
 }
 
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-.menu a{
-
-    transition:.3s;
-
-}
-
-.menu a.activo{
-
-    background:#ffffff;
-
-    color:#6c63ff;
-
-    border-radius:10px;
-
-    font-weight:bold;
-
-}
 
 .contenedor{
     display:grid;

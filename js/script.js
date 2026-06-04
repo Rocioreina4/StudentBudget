@@ -47,6 +47,7 @@ function actualizarSaldo() {
         "$" + ocio.toFixed(2);
 
     actualizarGraficoPastel();
+    actualizarGraficoBarras();
 
     const alerta =
         document.getElementById("alerta");
@@ -102,6 +103,53 @@ function actualizarGraficoPastel() {
             #00C896 ${c2}% ${c3}%,
             #FFB300 ${c3}% 100%
         )`;
+}
+
+/* GRAFICO BARRAS */
+
+function actualizarGraficoBarras(){
+
+    const total =
+    comida +
+    transporte +
+    educacion +
+    ocio;
+
+    if(total<=0)return;
+
+    const pComida =
+    (comida/total)*100;
+
+    const pTransporte =
+    (transporte/total)*100;
+
+    const pEducacion =
+    (educacion/total)*100;
+
+    const pOcio =
+    (ocio/total)*100;
+
+
+    document.getElementById(
+    "barraComida"
+    ).style.width =
+    pComida+"%";
+
+    document.getElementById(
+    "barraTransporte"
+    ).style.width =
+    pTransporte+"%";
+
+    document.getElementById(
+    "barraEducacion"
+    ).style.width =
+    pEducacion+"%";
+
+    document.getElementById(
+    "barraOcio"
+    ).style.width =
+    pOcio+"%";
+
 }
 
 /* AGREGAR INGRESO */
@@ -322,25 +370,6 @@ function guardarGastoModal(){
     agregarGasto();
     cerrarGasto();
 }
-/* INICIAR */
 
-actualizarSaldo();
 
-const links =
-document.querySelectorAll(".menu-link");
 
-links.forEach(link=>{
-
-link.addEventListener("click",function(){
-
-links.forEach(l=>{
-
-l.classList.remove("activo");
-
-});
-
-this.classList.add("activo");
-
-});
-
-});
