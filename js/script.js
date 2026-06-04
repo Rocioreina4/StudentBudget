@@ -325,3 +325,22 @@ function guardarGastoModal(){
 /* INICIAR */
 
 actualizarSaldo();
+
+const links =
+document.querySelectorAll(".menu-link");
+
+links.forEach(link=>{
+
+link.addEventListener("click",function(){
+
+links.forEach(l=>{
+
+l.classList.remove("activo");
+
+});
+
+this.classList.add("activo");
+
+});
+
+});

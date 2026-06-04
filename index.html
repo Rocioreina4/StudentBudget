@@ -26,32 +26,32 @@
 
             <div class="menu">
 
-                <a href="#">
+                <a href="#headerDashboard" class="menu-link">
                     <i class="fa-solid fa-house"></i>
                     Inicio
                 </a>
 
-                <a href="#">
+                <a href="#tarjetas" class="menu-link">
                     <i class="fa-solid fa-money-bill"></i>
                     Ingresos
                 </a>
 
-                <a href="#">
+                <a href="#grafico" class="menu-link">
                     <i class="fa-solid fa-credit-card"></i>
                     Gastos
                 </a>
 
-                <a href="#">
+                <a href="#historial" class="menu-link">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     Historial
                 </a>
 
-                <a href="#">
+                <a href="#movimientos" class="menu-link">
                     <i class="fa-solid fa-chart-column"></i>
                     Reportes
                 </a>
 
-                <a href="#">
+                <a href="#resumen" class="menu-link">
                     <i class="fa-solid fa-gear"></i>
                     Configuración
                 </a>
@@ -64,7 +64,7 @@
         <main>
 
             <!-- HEADER -->
-            <header>
+            <header id="headerDashboard">
 
                 <div>
                     <h1>Dashboard StudentBudget</h1>
@@ -81,7 +81,7 @@
             <section class="contenido">
 
                 <!-- RESUMEN -->
-                <section class="resumen">
+                <section class="resumen" id="resumen">
 
                     <article class="card-resumen">
                         <h3>Ingresos del Mes</h3>
@@ -101,7 +101,7 @@
                 </section>
 
                 <!-- TARJETAS -->
-                <section class="tarjetas">
+                <section class="tarjetas" id="tarjetas">
 
                     <article class="card saldo">
 
@@ -112,6 +112,7 @@
                         </h2>
 
                     </article>
+                    
 
 <article class="card accion ingreso-card">
 
@@ -141,7 +142,7 @@
 
 </article>
 
-                </section>
+  
 <!-- MODAL INGRESO -->
 
 <div id="modalIngreso" class="modal">
@@ -231,7 +232,7 @@
 
 <!-- GRAFICO PASTEL -->
 
-                <section class="dashboard-row">
+                <section class="dashboard-row" id="grafico">
 
     <!-- GASTOS POR CATEGORIA -->
 
@@ -287,7 +288,7 @@
 
     <!-- ULTIMOS MOVIMIENTOS -->
 
-    <section class="movimientos">
+    <section class="movimientos" id="movimientos">
 
         <h3>Últimos Movimientos</h3>
 
@@ -306,7 +307,7 @@
 
                 <!-- HISTORIAL -->
 
-                <section class="historial">
+                <section class="historial" id="historial">
 
                     <h3>Historial de Gastos</h3>
 
