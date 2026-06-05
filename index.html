@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentBudget - Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu" id="menu">
+                <a href="index.html" class="activo"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="Ingresos.html"><i class="fa-solid fa-money-bill"></i> Ingresos</a>
+                <a href="Gastos.html"><i class="fa-solid fa-credit-card"></i> Gastos</a>
+                <a href="Historial.html"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="Reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+                <a href="Configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <header>
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Control de gastos estudiantiles</p>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i> Estudiante
+                </div>
+            </header>
+
+            <section class="contenido">
+
+                <!-- RESUMEN -->
+                <h2 class="titulo-seccion">Resumen Financiero</h2>
+                <div class="resumen">
+                    <article class="card-resumen">
+                        <h3>Ingresos del Mes</h3>
+                        <h2 id="totalIngresos">$0.00</h2>
+                    </article>
+                    <article class="card-resumen">
+                        <h3>Gastos del Mes</h3>
+                        <h2 id="totalGastos">$0.00</h2>
+                    </article>
+                    <article class="card-resumen">
+                        <h3>Ahorro Actual</h3>
+                        <h2 id="ahorro">$0.00</h2>
+                    </article>
+                </div>
+
+                <!-- ACCIONES RÁPIDAS -->
+                <h2 class="titulo-seccion">Acciones</h2>
+                <div class="tarjetas">
+                    <article class="card saldo">
+                        <h3>Saldo Disponible</h3>
+                        <h2 id="saldo">$0.00</h2>
+                    </article>
+                    <article class="card accion ingreso-card">
+                        <button onclick="abrirIngreso()">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Agregar Dinero</span>
+                            <small>Registra tus ingresos</small>
+                        </button>
+                    </article>
+                    <article class="card accion gasto-card">
+                        <button onclick="abrirGasto()">
+                            <i class="fa-solid fa-minus"></i>
+                            <span>Registrar Gasto</span>
+                            <small>Agrega tus gastos</small>
+                        </button>
+                    </article>
+                </div>
+
+                <!-- GRÁFICO -->
+                <h2 class="titulo-seccion">Análisis de Gastos</h2>
+                <div class="dashboard-row">
+                    <div class="grafico-container">
+                        <article class="card">
+                            <h3>Gastos por Categoría</h3>
+                            <div class="contenedor-grafico">
+                                <div id="graficoPastel" class="grafico-pastel">
+                                    <div class="centro-grafico">Gastos<br>Totales</div>
+                                </div>
+                                <div class="leyenda">
+                                    <div><span class="color comida"></span> Comida: <span id="catComida">$0.00</span></div>
+                                    <div><span class="color transporte"></span> Transporte: <span id="catTransporte">$0.00</span></div>
+                                    <div><span class="color educacion"></span> Educación: <span id="catEducacion">$0.00</span></div>
+                                    <div><span class="color ocio"></span> Ocio: <span id="catOcio">$0.00</span></div>
+                                    <div><span class="color ropa"></span> Ropa: <span id="catRopa">$0.00</span></div>
+                                    <div><span class="color salud"></span> Salud: <span id="catSalud">$0.00</span></div>
+                                    <div><span class="color otro"></span> Otro: <span id="catOtro">$0.00</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- ÚLTIMOS MOVIMIENTOS -->
+                    <section class="movimientos">
+                        <h3>Últimos Movimientos</h3>
+                        <div id="ultimosMovimientos">
+                            <div class="movimiento"><span>Inicia a agregar</span><span>$0.00</span></div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- HISTORIAL -->
+                <section class="historial">
+                    <h3>Historial de Movimientos</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Categoría</th>
+                                <th>Tipo</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista"></tbody>
+                    </table>
+                </section>
+
+                <!-- MODAL INGRESO -->
+                <div id="modalIngreso" class="modal">
+                    <div class="modal-contenido">
+                        <span class="cerrar" onclick="cerrarIngreso()">&times;</span>
+                        <h2>💰 Agregar Ingreso</h2>
+                        <input type="number" id="ingreso" placeholder="Monto" min="1" step="0.01" onkeydown="if(event.key === '-') event.preventDefault()">
+                        <button onclick="guardarIngresoModal()">💾 Guardar</button>
+                    </div>
+                </div>
+
+                <!-- MODAL GASTO -->
+                <div id="modalGasto" class="modal">
+                    <div class="modal-contenido">
+                        <span class="cerrar" onclick="cerrarGasto()">&times;</span>
+                        <h2>💸 Registrar Gasto</h2>
+                        <input type="text" id="nombre" placeholder="Qué compraste?">
+                        <input type="number" id="gasto" placeholder="Monto" min="1" step="0.01" onkeydown="if(event.key === '-') event.preventDefault()">
+                        <select id="categoria">
+                            <option value="Comida">🍔 Comida</option>
+                            <option value="Transporte">🚌 Transporte</option>
+                            <option value="Educacion">📚 Educación</option>
+                            <option value="Ocio">🎮 Ocio</option>
+                            <option value="Ropa">👕 Ropa</option>
+                            <option value="Salud">💊 Salud</option>
+                            <option value="Otro">📦 Otro</option>
+                        </select>
+                        <button onclick="guardarGastoModal()">💾 Guardar Gasto</button>
+                    </div>
+                </div>
+
+                <!-- ALERTA -->
+                <div id="alerta" class="alerta">⚠ saldo insuficiente</div>
+
+            </section>
+
+            <footer>© 2026 StudentBudget | Proyecto Académico</footer>
+        </main>
+    </div>
+
+    <!-- ALERTA FLOTANTE -->
+    <div id="alertaFlotante" class="alerta-flotante">⚠ No tienes saldo suficiente</div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
