@@ -1147,67 +1147,25 @@ footer {
     }
 }
 
-/* ==================================
-    MÓVIL 
-================================== */
-
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-* {
-    max-width: 100%;
-}
-
-.contenedor {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-main {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* Tablas */
-.tabla-container,
-.historial {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-table {
-    width: 100%;
-    min-width: 600px;
-}
-
-/* Gráfico */
-.grafico-container,
-.contenedor-grafico {
-    width: 100%;
-    overflow: hidden;
-}
-
-.grafico-pastel {
-    max-width: 220px;
-    max-height: 220px;
-}
-
-/* Móvil */
+/* =========================
+   RESPONSIVE CELULAR/TABLET
+   ========================= */
 @media (max-width: 768px) {
-
     .contenedor {
-        grid-template-columns: 1fr !important;
+        display: flex;
+        flex-direction: column;
     }
 
     nav {
-        position: relative;
         width: 100%;
-        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
     }
 
     .logo {
@@ -1215,11 +1173,15 @@ table {
     }
 
     .menu-toggle {
-        display: block !important;
+        display: block;
         position: absolute;
-        top: 15px;
-        right: 15px;
-        z-index: 9999;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
     }
 
     .menu {
@@ -1228,110 +1190,99 @@ table {
         top: 60px;
         left: 0;
         width: 100%;
-        height: auto;
+        background: var(--morado);
         padding: 15px;
-        background: linear-gradient(180deg, #7B5DF5, #5B6CFF);
-        z-index: 9998;
+        z-index: 999;
     }
 
-    menu.mostrar {
+    .menu.mostrar {
         display: flex;
-        flex-direction: column;
+    }
+
+    main {
+        margin-top: 60px;
     }
 
     header {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
         gap: 10px;
     }
 
-    .usuario {
-        width: 100%;
-    }
-
-    .contenido {
-        padding: 15px;
-    }
-
-    .resumen {
-        grid-template-columns: 1fr !important;
-    }
-
-    .tarjetas {
-        grid-template-columns: 1fr !important;
-    }
-
-    .dashboard-row {
-        grid-template-columns: 1fr !important;
-    }
-
-    .fila-ingresos {
-        grid-template-columns: 1fr !important;
+    .resumen,
+    .tarjetas,
+    .dashboard-row,
+    .fila-ingresos,
+    .graficos-container,
+    .estadisticas {
+        grid-template-columns: 1fr;
     }
 
     .contenedor-grafico {
         flex-direction: column;
-        align-items: center;
     }
 
-    .movimientos {
+    .filtros {
+        flex-direction: column;
+    }
+
+    .filtros select {
         width: 100%;
     }
 
-    .grafico-pastel {
-        width: 180px;
-        height: 180px;
+    .totales {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .leyenda {
-        width: 100%;
+    footer {
+        text-align: center;
     }
 }
 
-@media (max-width: 768px) {
-
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .contenido {
+        padding: 10px;
     }
 
-    thead {
-        display: none;
+    .titulo-seccion {
+        font-size: 1.1rem;
     }
 
-    table {
+    /* Tabla con scroll */
+    .tabla-responsive {
         width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .tabla-responsive table {
+        min-width: 400px;
+    }
+    
+    .tabla-responsive th,
+    .tabla-responsive td {
+        padding: 8px 5px;
+        font-size: 11px;
+        white-space: nowrap;
     }
 
-    tr {
-        background: #fff;
-        margin-bottom: 15px;
-        border-radius: 12px;
-        padding: 12px;
-        box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    .categoria {
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+    
+    .tipo-ingreso, 
+    .tipo-gasto {
+        font-size: 11px;
+    }
+    
+    .card-resumen h2 {
+        font-size: 20px;
     }
 
-    td {
-        border: none;
-        padding: 8px 0;
-        text-align: left;
-        position: relative;
+    .saldo h2 {
+        font-size: 24px;
     }
-
-    td::before {
-        font-weight: bold;
-        display: block;
-        color: #666;
-        margin-bottom: 3px;
-    }
-
-    td:nth-child(1)::before { content: "Fecha"; }
-    td:nth-child(2)::before { content: "Descripción"; }
-    td:nth-child(3)::before { content: "Categoría"; }
-    td:nth-child(4)::before { content: "Tipo"; }
-    td:nth-child(5)::before { content: "Monto"; }
 }
