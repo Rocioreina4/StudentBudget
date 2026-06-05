@@ -24,6 +24,9 @@ y sencilla, mostrando automáticamente el saldo disponible para ayudar a los est
 - Rocio Beatriz Reina Córdova
 - Elizabeth Guadalupe Rodríguez Alfaro
 ## 📈 Mockup en Figma
+
+https://www.figma.com/design/QMj6ruFvC6ibjsNnuUp0SZ/Sin-t%C3%ADtulo?node-id=1-1773&t=3bHF1QYTHC3VxYMj-1
+
 ## 💻 Tecnologias y Herramientas utilizadas
 
  ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)&nbsp;
