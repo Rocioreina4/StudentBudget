@@ -1287,3 +1287,51 @@ table {
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    tr {
+        background: #fff;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    td {
+        border: none;
+        padding: 8px 0;
+        text-align: left;
+        position: relative;
+    }
+
+    td::before {
+        font-weight: bold;
+        display: block;
+        color: #666;
+        margin-bottom: 3px;
+    }
+
+    td:nth-child(1)::before { content: "Fecha"; }
+    td:nth-child(2)::before { content: "Descripción"; }
+    td:nth-child(3)::before { content: "Categoría"; }
+    td:nth-child(4)::before { content: "Tipo"; }
+    td:nth-child(5)::before { content: "Monto"; }
+}
