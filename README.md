@@ -35,7 +35,7 @@ y sencilla, mostrando automáticamente el saldo disponible para ayudar a los est
 
  ## 🔗 Enlace al sitio web
 
- studentbudget4.netlify.app
+ https://studentbudget4.netlify.app/
 
 
 
