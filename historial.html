@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentBudget - Historial</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu" id="menu">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="Ingresos.html"><i class="fa-solid fa-money-bill"></i> Ingresos</a>
+                <a href="Gastos.html"><i class="fa-solid fa-credit-card"></i> Gastos</a>
+                <a href="Historial.html" class="activo"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="Reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+                <a href="Configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <header>
+                <div>
+                    <h1>📋 Historial de Movimientos</h1>
+                    <p>Ver todos tus movimientos</p>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i> Estudiante
+                </div>
+            </header>
+
+            <div class="contenido">
+                
+                <!-- Filtros -->
+                <div class="filtros">
+                    <select id="filtroTipo" onchange="filtrarHistorial()">
+                        <option value="todos">Todos</option>
+                        <option value="ingreso">Solo Ingresos</option>
+                        <option value="gasto">Solo Gastos</option>
+                    </select>
+                    
+                    <select id="filtroFecha" onchange="filtrarHistorial()">
+                        <option value="todos">Todas las fechas</option>
+                        <option value="mes">Este mes</option>
+                        <option value="anterior">Mes anterior</option>
+                    </select>
+                </div>
+                
+                <!-- Tabla -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Descripción</th>
+                            <th>Categoría</th>
+                            <th>Tipo</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historialCompleto">
+                        <!-- Se llena con JS -->
+                    </tbody>
+                </table>
+                
+                <!-- Totales -->
+                <div class="totales">
+                    <span>Total Ingresos: <b id="totalIngresos" style="color:#00C853;">$0.00</b></span>
+                    <span>Total Gastos: <b id="totalGastos" style="color:#E53935;">$0.00</b></span>
+                    <span>Balance: <b id="balance">$0.00</b></span>
+                </div>
+
+            </div>
+
+            <footer>© 2026 StudentBudget | Proyecto Académico</footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

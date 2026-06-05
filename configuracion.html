@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentBudget - Configuración</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu" id="menu">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="Ingresos.html"><i class="fa-solid fa-money-bill"></i> Ingresos</a>
+                <a href="Gastos.html"><i class="fa-solid fa-credit-card"></i> Gastos</a>
+                <a href="Historial.html"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="Reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+                <a href="Configuracion.html" class="activo"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <header>
+                <div>
+                    <h1>⚙️ Configuración</h1>
+                    <p>Personaliza tu experiencia</p>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i> Estudiante
+                </div>
+            </header>
+
+            <div class="contenido">
+                
+                <!-- Datos del usuario -->
+                <div class="card-config">
+                    <h2>📝 Datos del usuario</h2>
+                    <div class="config-form">
+                        <div class="form-grupo">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="tu@email.com">
+                        </div>
+                        <div class="form-grupo">
+                            <label for="carrera">Carrera / Universidad</label>
+                            <input type="text" id="carrera" placeholder="Tu carrera">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apariencia -->
+                <div class="card-config">
+                    <h2>🎨 Apariencia</h2>
+                    <div class="config-form">
+                        <div class="form-grupo">
+                            <label for="moneda">Moneda</label>
+                            <select id="moneda">
+                                <option value="$">Dolares ($)</option>
+                                <option value="€">Euro (€)</option>
+                                <option value="£">Libra (£)</option>
+                                <option value="¥">Yen (¥)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notificaciones -->
+                <div class="card-config">
+                    <h2>🔔 Notificaciones</h2>
+                    <div class="config-opciones">
+                        <label class="checkbox">
+                            <input type="checkbox" id="alertaSaldo" checked>
+                            <span>Alertas de saldo bajo</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" id="recordatorio" checked>
+                            <span>Recordatorio mensual</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Datos -->
+                <div class="card-config">
+                    <h2>🗄️ Datos</h2>
+                    <p class="info-dato">Guarda o descarga tu información</p>
+                    <div class="botones-datos">
+                        <button type="button" onclick="exportarDatos()" class="btn btn-azul">
+                            <i class="fa-solid fa-download"></i> Exportar datos
+                        </button>
+                        <button type="button" onclick="eliminarDatos()" class="btn btn-rojo">
+                            <i class="fa-solid fa-trash"></i> Eliminar todo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Guardar -->
+                <button type="button" onclick="guardarConfig()" class="btn btn-verde btn-guardar-config">
+                    <i class="fa-solid fa-save"></i> GUARDAR CAMBIOS
+                </button>
+
+            </div>
+
+            <footer>© 2026 StudentBudget | Proyecto Académico</footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

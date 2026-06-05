@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentBudget - Reportes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu" id="menu">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="Ingresos.html"><i class="fa-solid fa-money-bill"></i> Ingresos</a>
+                <a href="Gastos.html"><i class="fa-solid fa-credit-card"></i> Gastos</a>
+                <a href="Historial.html"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="Reportes.html" class="activo"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+                <a href="Configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <header>
+                <div>
+                    <h1>📈 Reportes</h1>
+                    <p>Estadísticas y análisis</p>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i> Estudiante
+                </div>
+            </header>
+
+            <div class="contenido">
+                
+                <!-- Selector de período -->
+                <div class="filtros">
+                    <select id="periodo" onchange="actualizarReportes()">
+                        <option value="mes">Este mes</option>
+                        <option value="anterior">Mes anterior</option>
+                        <option value="todos">Todos los meses</option>
+                    </select>
+                </div>
+
+                <!-- Resumen -->
+                <div class="resumen">
+                    <div class="card-resumen">
+                        <p class="label-resumen">Total Ingresos</p>
+                        <p class="monto-resumen" id="reporteIngresos">$0.00</p>
+                    </div>
+                    <div class="card-resumen">
+                        <p class="label-resumen">Total Gastos</p>
+                        <p class="monto-resumen" id="reporteGastos">$0.00</p>
+                    </div>
+                    <div class="card-resumen">
+                        <p class="label-resumen">Ahorro</p>
+                        <p class="monto-resumen" id="reporteAhorro">$0.00</p>
+                    </div>
+                </div>
+
+                <!-- Gráficos juntos -->
+                <div class="graficos-container">
+                    
+                    <!-- Ingresos vs Gastos -->
+                    <div class="card-reporte">
+                        <h2>📊 Ingresos vs Gastos</h2>
+                        <div class="grafico-barras" id="graficoComparativo">
+                        </div>
+                    </div>
+
+                    <!-- Evolución Mensual -->
+                    <div class="card-reporte">
+                        <h2>📉 Evolución Mensual</h2>
+                        <div class="contenedor-linea">
+                            <div class="grafico-linea" id="graficoLinea">
+                            </div>
+                            <div class="leyenda-grafico">
+                                <span><span class="punto-color ingreso"></span> Ingresos</span>
+                                <span><span class="punto-color gasto"></span> Gastos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="card-reporte">
+                    <h2>📋 Estadísticas del Período</h2>
+                    <div class="estadisticas">
+                        <div class="stat-item">
+                            <span>Promedio diario de gastos</span>
+                            <b id="promedioDiario">$0.00</b>
+                        </div>
+                        <div class="stat-item">
+                            <span>Mayor gasto</span>
+                            <b id="mayorGasto">$0.00</b>
+                        </div>
+                        <div class="stat-item">
+                            <span>Día con más gastos</span>
+                            <b id="diaMasGastos">-</b>
+                        </div>
+                        <div class="stat-item">
+                            <span>Número de transacciones</span>
+                            <b id="numTransacciones">0</b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer>© 2026 StudentBudget | Proyecto Académico</footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

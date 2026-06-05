@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastos - StudentBudget</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- NAV -->
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <i class="fa-solid fa-wallet"></i>
+                <h2>StudentBudget</h2>
+            </div>
+
+            <div class="menu" id="menu">
+                <a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a href="ingresos.html"><i class="fa-solid fa-money-bill"></i> Ingresos</a>
+                <a href="gastos.html" class="activo"><i class="fa-solid fa-credit-card"></i> Gastos</a>
+                <a href="historial.html"><i class="fa-solid fa-clock-rotate-left"></i> Historial</a>
+                <a href="reportes.html"><i class="fa-solid fa-chart-column"></i> Reportes</a>
+                <a href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <header>
+                <div>
+                    <h1>Gastos</h1>
+                    <p>Registra tus gastos</p>
+                </div>
+                <div class="usuario">
+                    <i class="fa-solid fa-user"></i> Estudiante
+                </div>
+            </header>
+
+            <section class="contenido">
+
+                <!-- FILA DOS COLUMNAS: Formulario + Resumen -->
+                <div class="fila-ingresos">
+                    
+                    <!-- FORMULARIO (Izquierda) -->
+                    <div class="card-formulario">
+                        <div class="card-header">
+                            <i class="fa-solid fa-minus-circle"></i>
+                            <h2>Registrar Gasto</h2>
+                        </div>
+                        <form id="formGasto" onsubmit="guardarGasto(event)">
+                            
+                            <div class="form-grupo">
+                                <label>Qué compraste?</label>
+                                <input type="text" id="nombreGasto" placeholder="Descripción del gasto" required>
+                            </div>
+                            
+                            <div class="form-grupo">
+                                <label>Monto</label>
+                                <div class="input-icono">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                    <input type="number" id="montoGasto" placeholder="0.00" required min="1" step="0.01" onkeydown="if(event.key === '-') event.preventDefault()">
+                                </div>
+                            </div>
+                            
+                            <div class="form-grupo">
+                                <label>Categoría</label>
+                                <select id="categoriaGasto" required>
+                                    <option value="">Selecciona...</option>
+                                    <option value="Comida">🍔 Comida</option>
+                                    <option value="Transporte">🚌 Transporte</option>
+                                    <option value="Educacion">📚 Educación</option>
+                                    <option value="Ocio">🎮 Ocio</option>
+                                    <option value="Ropa">👕 Ropa</option>
+                                    <option value="Salud">💊 Salud</option>
+                                    <option value="Otro">📦 Otro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-grupo">
+                                <label>Fecha</label>
+                                <input type="date" id="fechaGasto" required>
+                            </div>
+                            
+                            <button type="submit" class="btn-guardar btn-gasto">
+                                <i class="fa-solid fa-save"></i> Guardar Gasto
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- RESUMEN (Derecha) -->
+                    <div class="resumen-lado">
+                        <div class="resumen-card">
+                            <div class="icono-resumen">
+                                <i class="fa-solid fa-arrow-trend-down"></i>
+                            </div>
+                            <div class="texto-resumen">
+                                <h3>Total Gastado</h3>
+                                <h2 id="totalGastado">$0.00</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="resumen-card">
+                            <div class="icono-resumen">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div class="texto-resumen">
+                                <h3>Este Mes</h3>
+                                <h2 id="gastoMes">$0.00</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="resumen-card">
+                            <div class="icono-resumen">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="texto-resumen">
+                                <h3>Último Gasto</h3>
+                                <h2 id="ultimoGasto">$0.00</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- TABLA HISTORIAL -->
+                <h2 class="titulo-seccion">Historial de Gastos</h2>
+                
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaGastos">
+                            <tr>
+                                <td colspan="4" class="sin-datos">No hay gastos registrados</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <footer>© 2026 StudentBudget | Proyecto Académico</footer>
+        </main>
+    </div>
+
+    <!-- ALERTA FLOTANTE -->
+    <div id="alertaFlotante" class="alerta-flotante">⚠ No tienes saldo suficiente</div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
